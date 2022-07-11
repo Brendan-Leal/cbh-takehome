@@ -16,3 +16,36 @@ Based on the information given, break this ticket down into 2-5 individual ticke
 You will be graded on the level of detail in each ticket, the clarity of the execution plan within and between tickets, and the intelligibility of your language. You don't need to be a native English speaker, but please proof-read your work.
 
 ## Your Breakdown Here
+
+### Sub-Ticket 1
+Add unit test for the new custom agent ids
+* When calling `getShiftsByFacility` does the meta data include the new custom agent ids?
+* Estimated time: 1 day
+* Effort: minimal
+
+### Sub-Ticket 2 
+Update schema of the database to incorporate `custom_agent_id`
+* Make sure Db is backed up
+* In the Agents table we'll need a column called `custom_agent_id`
+* this new column should have a unique constraint 
+* Estimated time: 1-2 days
+* Effort: minimal  
+
+
+This assumes that the `getShiftsByFacility` function returns the custom agent ids in the meta data
+
+### Sub-Ticket 3
+Unit test for `generateReport` should be updated to verify we are now using custom agent ids
+* Estimated time: 1 day
+Effort: hard
+
+### Sub-Ticket 4
+Update `generateReport` function to use the new custom agent ids
+* This function is called with a list of Shifts and the Shifts should now include custom agent ids. Replace the original internal Db ids with custom ones 
+iEstimated time: 1-2 days
+Effort: Trivial 
+
+This assumes you want the original internal Db ids replaced by the custom ones
+
+
+
